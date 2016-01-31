@@ -33,4 +33,5 @@ config :date_ranges, DateRanges.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "date_ranges",
   username: "postgres",
-  password: "postgres"
+  password: "postgres",
+  pool: Ecto.Adapters.SQL.Sandbox
