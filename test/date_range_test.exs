@@ -3,6 +3,7 @@ defmodule DateRangeTest do
 
   alias DateRanges.Repo
   alias DateRanges.DateRange
+  alias DateRanges.CustomDate
 
   setup tags do
     unless tags[:async] do
@@ -15,10 +16,13 @@ defmodule DateRangeTest do
   end
 
   test "It can query overlapping ranges" do
+    {:ok, s} = CustomDate.cast("4/18/2016")
+    {:ok, e} = CustomDate.cast("4/22/2016")
     target = %DateRange{
-      start: Ecto.Date.from_erl({2016, 4, 18}),
-      end: Ecto.Date.from_erl({2016, 4, 22})
+      start: s,
+      end: e,
     }
+    |> IO.inspect
 
     expected = %DateRange {
       start: Ecto.Date.from_erl({2016, 4, 21}),
