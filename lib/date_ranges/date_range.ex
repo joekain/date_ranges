@@ -3,8 +3,8 @@ defmodule DateRanges.DateRange do
   import Ecto.Query, only: [from: 1, from: 2]
 
   schema "date_ranges" do
-    field :start, Ecto.Date
-    field :end, Ecto.Date
+    field :start, DateRanges.CustomDate
+    field :end, DateRanges.CustomDate
 
     timestamps
   end
